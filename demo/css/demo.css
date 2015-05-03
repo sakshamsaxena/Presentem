@@ -1,0 +1,172 @@
+/*CSS Document*/
+body,#home
+{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+h1
+{
+    text-align: center;
+    font-family: monospace;
+    font-size: 4em;
+}
+.rings
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#outer_ring
+{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px black dashed;
+    -webkit-animation: rotr 30s infinite linear;
+    -moz-animation: rotr 30s infinite linear;
+    -o-animation: rotr 30s infinite linear;
+    animation: rotr 30s infinite linear;
+}
+#inner_ring
+{
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 2px black dashed;
+    z-index: -1;
+    -webkit-animation: rotl 30s infinite linear;
+    -moz-animation: rotl 30s infinite linear;
+    -o-animation: rotl 30s infinite linear;
+    animation: rotl 30s infinite linear;
+}
+#outer_ring img
+{
+    position: absolute;
+    margin: auto;
+    border-radius: 50%;
+    transform-origin: center;
+    cursor: pointer;
+    -webkit-animation: rotc 30s infinite linear;
+    -moz-animation: rotc 30s infinite linear;
+    -o-animation: rotc 30s infinite linear;
+    animation: rotc 30s infinite linear;
+}
+#one
+{
+    top: 1%;
+    left: 0;
+    right: 0;
+}
+#two
+{
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    top: 75%;
+}
+#three
+{
+    left: 1%;
+    top: 0;
+    bottom: 0;
+}
+#four
+{
+    right: 1%;
+    top: 0;
+    bottom: 0;
+}
+#five
+{
+    right: 5%;
+    bottom: 0;
+    top: 52.5%;
+    left: 57.5%;
+}
+#six
+{
+    left: 5%;
+    bottom: 0;
+    top: 52.5%;
+    right: 57.5%;
+}
+#seven
+{
+    left: 56.5px;
+    top: 56.5px;
+}
+#eight
+{
+    right: 56.5px;
+    top: 56.5px;
+}
+
+@-webkit-keyframes rotr
+{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+@-moz-keyframes rotr
+{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+@-o-keyframes rotr
+{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+@keyframes rotr
+{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+
+
+@-webkit-keyframes rotl 
+{
+    from{transform: rotate(720deg)}
+    to{transform: rotate(0deg)}
+}
+@-moz-keyframes rotl 
+{
+    from{transform: rotate(720deg)}
+    to{transform: rotate(0deg)}
+}
+@-o-keyframes rotl 
+{
+    from{transform: rotate(720deg)}
+    to{transform: rotate(0deg)}
+}
+@keyframes rotl 
+{
+    from{transform: rotate(720deg)}
+    to{transform: rotate(0deg)}
+}
+
+
+@-webkit-keyframes rotc
+{
+    from{transform: rotate(360deg)}
+    to{transform: rotate(0deg)}
+}
+@-moz-keyframes rotc
+{
+    from{transform: rotate(360deg)}
+    to{transform: rotate(0deg)}
+}
+@-o-keyframes rotc
+{
+    from{transform: rotate(360deg)}
+    to{transform: rotate(0deg)}
+}
+@keyframes rotc
+{
+    from{transform: rotate(360deg)}
+    to{transform: rotate(0deg)}
+}
