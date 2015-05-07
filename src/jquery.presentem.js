@@ -35,6 +35,14 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 		
         //Call gallery
         setupGallery(approach, opts);
+	  	
+	  	//Kill gallery on clicking elsewhere (Event binder)
+	  	$("div.presentem-wall").click(function(){
+            killGallery();
+        });
+        $("div.presentem-wall").children().click(function(e){
+            e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true)
+        });
         
         //Kill gallery on pressing of Esc key (Event binder)
         $(document).keyup(function (e) {
