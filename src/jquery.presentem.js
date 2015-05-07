@@ -1,3 +1,9 @@
+/*
+Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0)
+License in layman language:
+You are free to "share" and "adapt" this material for any purpose, even commercially, under the conditions that you must give aprropriate credit to the author (Saksham Saxena [https://github.com/sakshamsaxena]) and you must not put any additional restrictions.
+*/
+
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 10 */
 /*global jQuery : true, setupGallery : true, tradGallery : true, urlExists : true, killGallery : true, newPos : true */
 //Begin closure
