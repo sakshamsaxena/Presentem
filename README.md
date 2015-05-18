@@ -33,6 +33,7 @@ $("div#thumbs img").click(function(){
 ```
 
 That's it!
+Have a peep at a [demo](http://sakshamsaxena.in/presentem/demo/) to get a feel :)
 
 ## License
 
