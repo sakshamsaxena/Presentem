@@ -2,6 +2,20 @@
 
 Present 'Em is a simple jQuery plugin which basically initiates an image viewer within the browser with **_much_** less fuss. Hence, you just present 'em :sunglasses:
 
+## Features
+
+* Light and flexible
+* Intuitive gallery
+* Adjustable frame
+* Preloader for images
+* Ways to initiate : many! 
+* Ways to kill : 3 ('X' button at top right, 'Esc' key on keyboard, clicking anywhere outside frame)
+
+## Options (See example 2)
+
+- `fHeight` sets frame height (in pixels)
+- `fWidth` sets frame width (in pixels)
+
 ## What you need
 
 * jQuery (as of now :wink:)
@@ -57,6 +71,7 @@ $(window).load(function(){
 })
 ```
 That's it!
+
 Have a peep at a [demo](http://sakshamsaxena.in/presentem/demo/) to get a feel :)
 
 ## License
