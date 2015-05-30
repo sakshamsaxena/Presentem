@@ -8,10 +8,10 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 * Intuitive gallery
 * Adjustable frame
 * Preloader for images
-* Ways to initiate : many! 
+* Ways to initiate : __many__! 
 * Ways to kill : 3 ('X' button at top right, 'Esc' key on keyboard, clicking anywhere outside frame)
 
-## Options (See example 2)
+## Options
 
 - `fHeight` sets frame height (in pixels)
 - `fWidth` sets frame width (in pixels)
