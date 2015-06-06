@@ -2,7 +2,7 @@
 
 Present 'Em is a simple jQuery plugin which basically initiates an image viewer within the browser with **_much_** less fuss. Hence, you just present 'em :sunglasses:
 
-## Features
+### Features
 
 * Light and flexible
 * Intuitive gallery
@@ -11,18 +11,18 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 * Ways to initiate : __many__! 
 * Ways to kill : 3 ('X' button at top right, 'Esc' key on keyboard, clicking anywhere outside frame)
 
-## Options
+### Options
 
 - `fHeight` sets frame height (in pixels)
 - `fWidth` sets frame width (in pixels)
 
-## What you need
+### What you need
 
 * jQuery (as of now :wink:)
 * Images to be presented in gallery.
 * Thumbnail images.
 
-## How to use
+### How to use
 
 - Include the `jquery.presentem.js` file after icluding jQuery.
 - Include the `jquery.presentem.css` stylesheet in head.
@@ -30,7 +30,7 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 - This will __require__ you to add a  `data-hqimg` attribute in every one of your thumbnail `img` tag containing the __relative__ path of corresponding larger image.
 - Call `presentem()` by attaching it to the thumbnail images selector. (You need to attach `presentem()` to the `img` tags with `data-hqimg` attribute )
 
-## Example 1 :
+### Example (Conservative approach) :
 
 HTML 
 ```html
@@ -48,7 +48,7 @@ $("div#thumbs img").click(function(){
 })
 ```
 
-## Example 2 :
+### Example (Free-thinker approach):
 
 HTML
 ```html
@@ -73,7 +73,7 @@ $(window).load(function(){
 ```
 That's it! Have a peep at a [demo](http://sakshamsaxena.in/presentem/demo/) to get a feel :)
 
-## License
+### License
 
 <p align="center">
     <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="CC BY 4.0 License">
