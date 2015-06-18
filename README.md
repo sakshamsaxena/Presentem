@@ -71,7 +71,7 @@ $(window).load(function(){
     $(".view").presentem({fHeight:400, fWidth:600});
 })
 ```
-That's it! Have a peep at a [demo](http://sakshamsaxena.in/presentem/demo/) to get a feel :)
+That's it! ( Demo temporarily unavailable :\ )
 
 ### License
 
