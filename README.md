@@ -71,7 +71,7 @@ $(window).load(function(){
     $(".view").presentem({fHeight:400, fWidth:600});
 })
 ```
-That's it! ( Demo temporarily unavailable :\ )
+That's it! Get a peek at it at this [demo](http://sakshamsaxena.github.io/Presentem/).
 
 ### License
 
