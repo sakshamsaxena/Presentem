@@ -26,9 +26,8 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 
 - Include the `jquery.presentem.js` file after icluding jQuery.
 - Include the `jquery.presentem.css` stylesheet in head.
-- Create a section in your page which has thumbnails of original larger images. (You need an `img` tag, as this tag is looked up only )
-- This will __require__ you to add a  `data-hqimg` attribute in every one of your thumbnail `img` tag containing the __relative__ path of corresponding larger image.
-- Call `presentem()` by attaching it to the thumbnail images selector. (You need to attach `presentem()` to the `img` tags with `data-hqimg` attribute )
+- Add a  `data-hqimg` attribute in every one of your thumbnail `img` tag containing the __relative__ path of corresponding larger image.
+- Call `presentem()` by attaching it to the thumbnail images selector.
 
 ### Example (Conservative approach) :
 
@@ -71,7 +70,10 @@ $(window).load(function(){
     $(".view").presentem({fHeight:400, fWidth:600});
 })
 ```
-That's it! Get a peek at it at this [demo](http://sakshamsaxena.github.io/Presentem/).
+
+### Live Demo
+
+Get a peek of Present 'Em at this [demo](http://sakshamsaxena.github.io/Presentem/).
 
 ### License
 
