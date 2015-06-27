@@ -4,11 +4,9 @@ License in layman language:
 You are free to "share" and "adapt" this material for any purpose, even commercially, under the conditions that you must give aprropriate credit to the author (Saksham Saxena [https://github.com/sakshamsaxena]) and you must not put any additional restrictions.
 */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 10 */
-/*global jQuery : true, setupGallery : true, tradGallery : true, urlExists : true, killGallery : true, newPos : true */
 //Begin closure
 (function ($) {
-	"use strict";
+		"use strict";
     var i, imgsNumber = 0, imgsStackT = [], curPath = (window.location.href).substring(0, (window.location.href).lastIndexOf("/") + 1), approach = 0, leftC = '<svg id="presentem-ctrl-prev" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 14 14"  xml:space="preserve"><polygon points="11.949,3.404 7,8.354 2.05,3.404 -0.071,5.525 7,12.596 14.07,5.525 "/></svg>', rightC = '<svg id="presentem-ctrl-next" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 14 14"  xml:space="preserve"><polygon points="11.949,3.404 7,8.354 2.05,3.404 -0.071,5.525 7,12.596 14.07,5.525 "/></svg>', crossC = '<svg version="1.1" id="presentem-ctrl-close" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 14 14" xml:space="preserve"><polygon points="14,3 11,0 7,4 3,0 0,3 4,7 0,11 3,14 7,10 11,14 14,11 10,7 "/></svg>';
      
     //Plugin definition START
@@ -36,11 +34,11 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
         //Call gallery
         setupGallery(approach, opts);
 	  	
-	  	//Kill gallery on clicking elsewhere (Event binder)
-	  	$("div.presentem-wall").click(function(){
+			//Kill gallery on clicking elsewhere (Event binder)
+				$("div.presentem-wall").click(function () {
             killGallery();
         });
-        $("div.presentem-wall").children().click(function(e){
+        $("div.presentem-wall").children().click(function (e) {
             e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true)
         });
         
@@ -119,8 +117,8 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
                 .css("height", window.innerHeight + "px")
                 .append("<div class='presentem-frame'></div>")
                 .append(crossC)
-				.append(leftC)
-				.append(rightC);
+								.append(leftC)
+								.append(rightC);
 			
             //Preload first image and call gallery
 			$.ajax({
