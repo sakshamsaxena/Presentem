@@ -1,10 +1,10 @@
 {
   "name": "present-em",
-  "version": "1.0.1",
-  "description": "Present 'Em is a simple jQuery plugin which basically initiates an image viewer within the browser with **_much_** less fuss. Hence, you just present 'em",
+  "version": "1.0.2",
+  "description": "A simple hassle-free jQuery gallery",
   "main": "jquery.presentem.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests as of now. View the demo maybe?\""
   },
   "repository": {
     "type": "git",

@@ -29,6 +29,10 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 - Add a  `data-hqimg` attribute in every one of your thumbnail `img` tag containing the __relative__ path of corresponding larger image.
 - Call `presentem()` by attaching it to the thumbnail images selector.
 
+### Test
+
+Sorry, none so far.
+
 ### Example (Conservative approach) :
 
 HTML 

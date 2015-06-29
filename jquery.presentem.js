@@ -34,7 +34,7 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
         //Call gallery
         setupGallery(approach, opts);
 	  	
-			//Kill gallery on clicking elsewhere (Event binder)
+				//Kill gallery on clicking elsewhere (Event binder)
 				$("div.presentem-wall").click(function () {
             killGallery();
         });
@@ -120,7 +120,7 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 								.append(leftC)
 								.append(rightC);
 			
-            //Preload first image and call gallery
+      //Preload first image and call gallery
 			$.ajax({
 				url : imgsStackT[0],
 				beforeSend : function () {$("body").append("<div class='presentem-loader'></div>"); },
