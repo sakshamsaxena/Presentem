@@ -1,0 +1,31 @@
+{
+  "name": "present-em",
+  "version": "1.0.1",
+  "description": "Present 'Em is a simple jQuery plugin which basically initiates an image viewer within the browser with **_much_** less fuss. Hence, you just present 'em",
+  "main": "jquery.presentem.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakshamsaxena/Presentem.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "gallery",
+    "slideshow",
+    "image-viewer"
+  ],
+  "author": {
+    "name": "Saksham Saxena",
+    "email": "saksham_saxena@outlook.com"
+  },
+  "license": "CC BY 4.0",
+  "bugs": {
+    "url": "https://github.com/sakshamsaxena/Presentem/issues"
+  },
+  "homepage": "https://github.com/sakshamsaxena/Presentem#readme",
+  "dependencies": {
+    "jquery": "^1.9"
+  }
+}
