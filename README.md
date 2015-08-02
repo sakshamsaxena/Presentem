@@ -6,9 +6,10 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 
 * Light and flexible
 * Intuitive gallery
-* Adjustable frame (see Options below)
 * Preloader for images
-* Ways to initiate : __many__! 
+* [Adjustable frame dimensions](https://github.com/sakshamsaxena/Presentem#options)
+* [Customizable styles of frame](https://github.com/sakshamsaxena/Presentem/wiki/blurgh)
+* Ways to initiate : __many__!
 * Ways to kill : 3 ('X' button at top right, 'Esc' key on keyboard, clicking anywhere outside frame)
 
 ### Options
@@ -31,7 +32,7 @@ Present 'Em is a simple jQuery plugin which basically initiates an image viewer 
 
 ### Test
 
-Sorry, none so far.
+Sorry, none so far. [Suggest some, maybe?](https://github.com/sakshamsaxena/Presentem/issues/new)
 
 ### Example (Conservative approach) :
 
@@ -82,8 +83,6 @@ Get a peek of Present 'Em at this [demo](http://sakshamsaxena.github.io/Presente
 ### Upcoming Features
 
 * Captions inclusion.
-* Code improvements.
-* Documentation to customize your own frame.
 
 ### License
 
