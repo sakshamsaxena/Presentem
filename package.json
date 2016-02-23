@@ -1,6 +1,6 @@
 {
   "name": "present-em",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple hassle-free jQuery gallery",
   "main": "jquery.presentem.js",
   "scripts": {

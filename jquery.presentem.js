@@ -8,6 +8,7 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 (function ($) {
 	"use strict";
 	var i, imgsNumber = 0,
+		marginC = parseFloat(20/1366),
 		imgsStackT = [],
 		curPath = (window.location.href).substring(0, (window.location.href).lastIndexOf("/") + 1),
 		approach = 0,
@@ -22,6 +23,16 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 			fHeight: "500",
 			fWidth: "500"
 		}, options);
+		var AR = parseFloat(opts.fWidth / opts.fHeight);
+		var actualSize;
+		if (window.innerWidth <= 768) {
+			actualSize = {
+				fWidth: parseFloat(0.85 * window.innerWidth),
+				fHeight: parseFloat(0.85 * window.innerWidth / AR)
+			};
+		} else {
+			actualSize = opts;
+		}
 
 		//Stack HQ images
 		this.each(function () {
@@ -36,7 +47,7 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 		});
 
 		//Call gallery
-		setupGallery(approach, opts);
+		setupGallery(approach, actualSize);
 
 		/*Core event binders*****************************************************************/
 
@@ -70,192 +81,192 @@ You are free to "share" and "adapt" this material for any purpose, even commerci
 
 	/*Function to check if the recorded urls exist or not********************************/
 	function urlExists(url) {
-			var http = new XMLHttpRequest();
-			http.open('HEAD', url);
-			http.send();
-			if (http.status !== 404) {
-				imgsNumber++;
-				return true;
-			} else {
-				return false;
-			}
+		var http = new XMLHttpRequest();
+		http.open('HEAD', url);
+		http.send();
+		if (http.status !== 404) {
+			imgsNumber++;
+			return true;
+		} else {
+			return false;
 		}
-		/************************************************************************************/
+	}
+	/************************************************************************************/
 
 	/*Function to kill gallery***********************************************************/
 	function killGallery() {
-			var w = $(".presentem-wall");
-			if (w.length) {
-				w.fadeOut(800);
-				w.queue(function () {
-					w.remove();
-					w.dequeue();
-				});
-			} else {
-				return;
-			}
+		var w = $(".presentem-wall");
+		if (w.length) {
+			w.fadeOut(800);
+			w.queue(function () {
+				w.remove();
+				w.dequeue();
+			});
+		} else {
+			return;
 		}
-		/************************************************************************************/
+	}
+	/************************************************************************************/
 
 	/*Resize handling********************************************************************/
-	function newPos(opts) {
-			var bW = document.body.getBoundingClientRect().width,
-				bH = document.body.getBoundingClientRect().height,
-				obj = {
-					wallH: bH,
-					wallW: bW,
-					offset: (bW - opts.fWidth) / 2 - 20 + "px",
-					caratH: 40 + (opts.fHeight / 2) + "px"
-				};
-			$("#presentem-ctrl-next,#presentem-ctrl-prev").css("top", obj.caratH);
-			$("#presentem-ctrl-next").css("right", obj.offset);
-			$("#presentem-ctrl-prev").css("left", obj.offset);
-		}
-		/************************************************************************************/
+	function newPos(actualSize) {
+		var bW = document.body.getBoundingClientRect().width,
+			bH = document.body.getBoundingClientRect().height,
+			obj = {
+				wallH: bH,
+				wallW: bW,
+				offset: (bW - actualSize.fWidth) / 2 - marginC + "px",
+				caratH: 40 + (actualSize.fHeight / 2) + "px"
+			};
+		$("#presentem-ctrl-next,#presentem-ctrl-prev").css("top", obj.caratH);
+		$("#presentem-ctrl-next").css("right", obj.offset);
+		$("#presentem-ctrl-prev").css("left", obj.offset);
+	}
+	/************************************************************************************/
 
 	/*Function to show the gallery wall**************************************************/
-	function setupGallery(approach, opts) {
-			//Setting up wall
-			if (approach == 2) {
-				$("body")
-					.append("<div class='presentem-wall'></div>");
-				$("div.presentem-wall")
-					.css("height", window.innerHeight + "px")
-					.append("<div class='presentem-frame'></div>")
-					.append(crossC)
-					.append(leftC)
-					.append(rightC);
+	function setupGallery(approach, actualSize) {
+		//Setting up wall
+		if (approach == 2) {
+			$("body")
+				.append("<div class='presentem-wall'></div>");
+			$("div.presentem-wall")
+				.css("height", window.innerHeight + "px")
+				.append("<div class='presentem-frame'></div>")
+				.append(crossC)
+				.append(leftC)
+				.append(rightC);
 
-				//Preload first image and call gallery
-				$.ajax({
-					url: imgsStackT[0],
-					beforeSend: function () {
-						$("body").append("<div class='presentem-loader'></div>");
-					},
-					complete: function () {
-						tradGallery(opts);
-						$(".presentem-loader").remove();
-					}
-				});
+			//Preload first image and call gallery
+			$.ajax({
+				url: imgsStackT[0],
+				beforeSend: function () {
+					$("body").append("<div class='presentem-loader'></div>");
+				},
+				complete: function () {
+					tradGallery(actualSize);
+					$(".presentem-loader").remove();
+				}
+			});
 
-			}
 		}
-		/************************************************************************************/
+	}
+	/************************************************************************************/
 
 	/*Boom boom! Shake the room!*********************************************************/
-	function tradGallery(opts) {
-			//Set new CSS values
-			newPos(opts);
+	function tradGallery(actualSize) {
+		//Set new CSS values
+		newPos(actualSize);
 
-			//Theatricals
-			$("div.presentem-wall")
-				.animate({
-					opacity: 1
-				}, {
-					duration: 800,
-					queue: true
-				})
-				.queue(function () {
-					$("div.presentem-frame")
-						.animate({
-							height: opts.fHeight + "px"
-						}, {
-							duration: 800,
-							queue: true
-						})
-						.animate({
-							width: opts.fWidth + "px"
-						}, {
-							duration: 800,
-							queue: true
-						});
-					$(this).dequeue();
-				})
-				.delay(1600)
-				.queue(function () {
-					$("#presentem-ctrl-prev")
-						.animate({
-							opacity: "1"
-						}, {
-							duration: 800,
-							queue: false
-						});
-					$(this).dequeue();
-				})
-				.queue(function () {
-					$("#presentem-ctrl-next")
-						.animate({
-							opacity: "1"
-						}, {
-							duration: 800,
-							queue: false
-						});
-					$(this).dequeue();
-				})
-				.queue(function () {
-					$("#presentem-ctrl-close")
-						.animate({
-							opacity: "1"
-						}, {
-							duration: 800,
-							queue: false
-						});
-					$(this).dequeue();
-				});
-
-			//Time to get the images
-			$("div.presentem-frame")
-				.append("<img id='presentem-curr-img' src='" + imgsStackT[0] + "' width=100%>");
-
-			//Controls
-			$("#presentem-ctrl-next").click(function () {
-				for (i = 0; i < imgsNumber; i++) {
-					if ($("#presentem-curr-img").attr("src") === (imgsStackT[i])) {
-						break;
-					}
-				}
-				if (i + 1 >= imgsNumber) {
-					i = -1;
-				}
-
-				$.ajax({
-					url: imgsStackT[i + 1],
-					beforeSend: function () {
-						$(".presentem-wall").append("<div class='presentem-loader'></div>");
-					},
-					complete: function () {
-						$("#presentem-curr-img").fadeOut(400, function () {
-							$(this).attr("src", imgsStackT[i + 1]).fadeIn();
-						});
-						$(".presentem-loader").remove();
-					}
-				});
+		//Theatricals
+		$("div.presentem-wall")
+			.animate({
+				opacity: 1
+			}, {
+				duration: 800,
+				queue: true
+			})
+			.queue(function () {
+				$("div.presentem-frame")
+					.animate({
+						height: actualSize.fHeight + "px"
+					}, {
+						duration: 800,
+						queue: true
+					})
+					.animate({
+						width: actualSize.fWidth + "px"
+					}, {
+						duration: 800,
+						queue: true
+					});
+				$(this).dequeue();
+			})
+			.delay(1600)
+			.queue(function () {
+				$("#presentem-ctrl-prev")
+					.animate({
+						opacity: "1"
+					}, {
+						duration: 800,
+						queue: false
+					});
+				$(this).dequeue();
+			})
+			.queue(function () {
+				$("#presentem-ctrl-next")
+					.animate({
+						opacity: "1"
+					}, {
+						duration: 800,
+						queue: false
+					});
+				$(this).dequeue();
+			})
+			.queue(function () {
+				$("#presentem-ctrl-close")
+					.animate({
+						opacity: "1"
+					}, {
+						duration: 800,
+						queue: false
+					});
+				$(this).dequeue();
 			});
-			$("#presentem-ctrl-prev").click(function () {
-				for (i = 0; i < imgsNumber; i++) {
-					if ($("#presentem-curr-img").attr("src") === (imgsStackT[i])) {
-						break;
-					}
-				}
-				if (i - 1 < 0) {
-					i = imgsNumber;
-				}
 
-				$.ajax({
-					url: imgsStackT[i - 1],
-					beforeSend: function () {
-						$(".presentem-wall").append("<div class='presentem-loader'></div>");
-					},
-					complete: function () {
-						$("#presentem-curr-img").fadeOut(400, function () {
-							$(this).attr("src", imgsStackT[i - 1]).fadeIn();
-						});
-						$(".presentem-loader").remove();
-					}
-				});
+		//Time to get the images
+		$("div.presentem-frame")
+			.append("<img id='presentem-curr-img' src='" + imgsStackT[0] + "' width=100%>");
+
+		//Controls
+		$("#presentem-ctrl-next").click(function () {
+			for (i = 0; i < imgsNumber; i++) {
+				if ($("#presentem-curr-img").attr("src") === (imgsStackT[i])) {
+					break;
+				}
+			}
+			if (i + 1 >= imgsNumber) {
+				i = -1;
+			}
+
+			$.ajax({
+				url: imgsStackT[i + 1],
+				beforeSend: function () {
+					$(".presentem-wall").append("<div class='presentem-loader'></div>");
+				},
+				complete: function () {
+					$("#presentem-curr-img").fadeOut(400, function () {
+						$(this).attr("src", imgsStackT[i + 1]).fadeIn();
+					});
+					$(".presentem-loader").remove();
+				}
 			});
-		}
-		/************************************************************************************/
+		});
+		$("#presentem-ctrl-prev").click(function () {
+			for (i = 0; i < imgsNumber; i++) {
+				if ($("#presentem-curr-img").attr("src") === (imgsStackT[i])) {
+					break;
+				}
+			}
+			if (i - 1 < 0) {
+				i = imgsNumber;
+			}
+
+			$.ajax({
+				url: imgsStackT[i - 1],
+				beforeSend: function () {
+					$(".presentem-wall").append("<div class='presentem-loader'></div>");
+				},
+				complete: function () {
+					$("#presentem-curr-img").fadeOut(400, function () {
+						$(this).attr("src", imgsStackT[i - 1]).fadeIn();
+					});
+					$(".presentem-loader").remove();
+				}
+			});
+		});
+	}
+	/************************************************************************************/
 
 
 	//End closure
